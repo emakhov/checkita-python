@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    # environment:
+    #   - AWS_ACCESS_KEY_ID=test
+    #   - AWS_SECRET_ACCESS_KEY=test
+    #   - AWS_DEFAULT_REGION=us-east-1
+    #   - S3_ENDPOINT=http://s3:9000
+    # depends_on:
+    #   - s3
+    #   - metastore
+
+#   s3:
+#     image: minio/minio
+#     ports:
+#       - "9000:9000"
+#       - "9001:9001"
+#     environment:
+#       - MINIO_ROOT_USER=test
+#       - MINIO_ROOT_PASSWORD=test
+#     command: server /data --console-address ":9001"
+#     volumes:
+#       - s3_data:/data
+
+#   metastore:
+#     image: apache/hive:4.0.1
+#     ports:
+#       - "9083:9083"
+#     environment:
+#       - SERVICE_NAME=metastore
+#       - DB_TYPE=mysql
+#       - METASTORE_DB_HOSTNAME=mysql
+#       - METASTORE_DB_TYPE=mysql
+#       - METASTORE_DB_NAME=metastore
+#       - METASTORE_DB_USER=metastore
+#       - METASTORE_DB_PASSWORD=metastore
+#     depends_on:
+#       - mysql
+
+#   mysql:
+#     image: mysql:5.7
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=root
+#       - MYSQL_DATABASE=metastore
+#       - MYSQL_USER=metastore
+#       - MYSQL_PASSWORD=metastore
+#     volumes:
+#       - mysql_data:/var/lib/mysql
+
+# volumes:
+#   s3_data:
+#   mysql_data: 

@@ -1,0 +1,72 @@
+# Scala specific
+*.class
+*.log
+
+# sbt specific
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
+# bloop and metals
+.bloop
+.bsp
+.metals
+project/metals.sbt
+**/metals.sbt
+
+# vs code
+.vscode/
+.scala_dependencies
+.worksheet
+
+# IntelliJ IDEA
+.idea
+.idea_modules
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.settings
+.classpath
+.project
+bin/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Local configuration
+.env
+*.conf.local
+application.local.conf
+
+# Build output
+out/
+build/
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Temporary files
+tmp/
+temp/
+*.swp
+*~
+
+# Scala Worksheets
+*.sc 

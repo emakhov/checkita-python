@@ -1,0 +1,36 @@
+{
+    "name": "Spark Development Environment",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "SPARK_VERSION": "3.5.5",
+            "SCALA_VERSION": "2.13.12"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "scalameta.metals",
+                "scala-lang.scala",
+                "sbt.scala",
+                "ms-python.vscode-pylance",
+                "redhat.vscode-yaml",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.formatting.provider": "black",
+                "metals.javaHome": "/usr/lib/jvm/java-11-openjdk-amd64"
+            }
+        }
+    },
+    "forwardPorts": [
+        4040, // Spark UI
+        8080, // Additional web port
+        8888 // Jupyter notebook
+    ],
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
+    "remoteUser": "vscode"
+}
