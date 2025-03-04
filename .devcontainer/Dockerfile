@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 # Arguments for version control
 ARG SPARK_VERSION="3.5.5"
 ARG SCALA_VERSION="2.13.12"
-ARG HADOOP_VERSION="3.4.1"
+ARG HADOOP_VERSION="3.3.6"
 
 # Set environment variables
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64

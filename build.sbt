@@ -10,7 +10,9 @@ resolvers ++= Seq(
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "3.5.5" % "provided",
   "org.apache.spark" %% "spark-sql" % "3.5.5" % "provided",
-  "org.scala-lang" % "scala-reflect" % scalaVersion.value
+  "org.scala-lang" % "scala-reflect" % scalaVersion.value,
+  "org.apache.hadoop" % "hadoop-aws" % "3.4.1",
+  "com.amazonaws" % "aws-java-sdk-bundle" % "1.12.261"
 )
 
 // Add Spark and Hadoop jars to the classpath
