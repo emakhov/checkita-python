@@ -20,8 +20,6 @@
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
-                "python.linting.enabled": true,
-                "python.formatting.provider": "black",
                 "metals.javaHome": "/usr/lib/jvm/java-11-openjdk-amd64"
             }
         }

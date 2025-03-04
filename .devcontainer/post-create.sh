@@ -1,18 +1,19 @@
 #!/bin/bash
 
+echo "Running post-create script..."
+
+# Update package lists
 sudo apt-get update
 
-# Initialize sbt (downloads dependencies)
-sbt sbtVersion
+# Setup Coursier for current user
+echo "Setting up Coursier for current user..."
+cs setup --yes 
 
-# Set appropriate permissions
-# sudo chown -R $USER:$USER /workspace
+echo 'export PATH="$HOME/.local/share/coursier/bin:$PATH"' >> ~/.bashrc
 
-# Print versions for verification
-echo "Checking installed versions:"
-echo "Java version:"
-java -version
-echo "Scala version:"
-scala -version
-echo "SBT version:"
-sbt --version
+# Configure git
+git config --global user.name "Egor Makhov"
+git config --global user.email e.makhov@protonmail.com
+
+# Set appropriate permissions for workspace
+sudo chown -R $USER:$USER /workspace

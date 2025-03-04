@@ -18,18 +18,12 @@ ARG SCALA_VERSION="2.13.12"
 # Set environment variables
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ENV SPARK_HOME=/opt/spark
+
 ENV PATH=$PATH:$SPARK_HOME/bin
 
 # Download and install Coursier
 RUN curl -fL "https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz" | gzip -d > /usr/local/bin/cs \
     && chmod +x /usr/local/bin/cs
-
-# Install Scala and SBT using Coursier
-RUN /usr/local/bin/cs setup --yes \
-    && /usr/local/bin/cs install --install-dir /usr/local/bin scala:${SCALA_VERSION} sbt
-
-# Add Coursier-installed binaries to PATH
-ENV PATH=$PATH:/root/.local/share/coursier/bin
 
 # Download and install Spark
 RUN wget https://downloads.apache.org/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop3.tgz \
